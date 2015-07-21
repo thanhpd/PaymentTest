@@ -1,17 +1,14 @@
-﻿
+﻿@model IEnumerable<Category>
+
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
-<!DOCTYPE html>
+<h3>Browse Categories</h3>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<ul class="list-group">
+    @foreach (var category in Model)
+    {
+        <li class="list-group-item">@Html.ActionLink(category.Name, "Browse", new { id = category.Name} )</li>
+    }
+</ul>
